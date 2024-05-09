@@ -62,8 +62,7 @@
     #ticketmaster {
       top: 226px;
       left: 29px;
-      width: 100%;
-      max-width: 26%;
+      width: 26%;
     }
 
 
@@ -146,7 +145,10 @@
     });
 
     function playTL() {
-      tl.set(opponentLogo, {
+      tl.set([opponentLogo, chiefsLogo, date], {
+        scale: .5
+      });
+      tl.set(chiefsLogo, {
         scale: .5
       });
       tl.set(chiefsLogo, {
@@ -191,18 +193,11 @@
 
 
       tl.add("finale", "+=.3");
-      tl.to(
-        [date],
-        0.25,
-        {
-          autoAlpha: 1,
-        },
-        "finale"
-      );
+      tl.fromTo(date, { autoAlpha: 0, scale: .5 }, { autoAlpha: 1, scale: 1, duration: .5, ease: "bounce.out" }, "finale");
       /* -----------------
                 finale
                 ------------------ */
-
+      tl.add("finale2", "+=.3");
       tl.to(
         cta,
         0.25,
@@ -212,7 +207,7 @@
           y: -5,
 
         },
-        "finale"
+        "finale2"
       );
       tl.to(
         [ticketmaster],
@@ -221,7 +216,7 @@
           duration: 2.5,
           autoAlpha: 1,
         },
-        "finale"
+        "finale2"
       );
     }
 
