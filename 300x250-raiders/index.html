@@ -54,7 +54,7 @@
 
     #date {
       top: 220px;
-      left: 171px;
+      left: 141px;
       width: 100%;
       width: 39%;
     }
@@ -145,7 +145,7 @@
     });
 
     function playTL() {
-      tl.set([opponentLogo, chiefsLogo, date], {
+      tl.set([opponentLogo, chiefsLogo], {
         scale: .5
       });
       tl.set(chiefsLogo, {
@@ -193,11 +193,12 @@
 
 
       tl.add("finale", "+=.3");
-      tl.fromTo(date, { autoAlpha: 0, scale: .5 }, { autoAlpha: 1, scale: 1, duration: .5, ease: "bounce.out" }, "finale");
+      tl.fromTo(date, { autoAlpha: 0, }, { autoAlpha: 1, x: '+=11px', duration: .25, ease: "power.out" }, "finale");
+      tl.to(date, { x: '+=30' }, 'finale')
       /* -----------------
                 finale
                 ------------------ */
-      tl.add("finale2", "+=.3");
+      // tl.add("finale2", "+=.3");
       tl.to(
         cta,
         0.25,
@@ -207,7 +208,7 @@
           y: -5,
 
         },
-        "finale2"
+        "finale"
       );
       tl.to(
         [ticketmaster],
@@ -216,7 +217,7 @@
           duration: 2.5,
           autoAlpha: 1,
         },
-        "finale2"
+        "finale"
       );
     }
 
