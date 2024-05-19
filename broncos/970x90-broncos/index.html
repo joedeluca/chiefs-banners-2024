@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chiefs 2024 970x90</title>
+  <meta name="ad.size" content="width=970,height=90" />
+  <style>
+    body,
+    body * {
+      border: 0 none;
+      outline: 0;
+      margin: 0;
+      padding: 0;
+    }
+
+    #banner * {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      visibility: hidden;
+      z-index: 2;
+    }
+
+    #bg {
+      width: 100%;
+      z-index: 1;
+    }
+
+    #chiefsLogo {
+      top: 15px;
+      left: 412px;
+      width: 95px;
+    }
+
+    #opponentLogo {
+      top: 21px;
+      left: 260px;
+      width: 95px;
+    }
+
+    #vs {
+      top: 17px;
+      left: 360px;
+      width: 45px;
+    }
+
+    #geha {
+      top: 0px;
+      left: 59px;
+      width: 123px;
+    }
+
+    #day {
+      top: 59px;
+      left: 42px;
+      width: 106px;
+    }
+
+    #date {
+      top: 58.5px;
+      left: 151px;
+      width: 54px;
+    }
+
+    #ticketmaster {
+      top: 58px;
+      left: 833px;
+      width: 97px;
+    }
+
+
+
+    #cta {
+      top: 25px;
+      left: 823px;
+      width: 116px;
+      height: 24px;
+      background-repeat: no-repeat;
+      background-image: url("button.png");
+      background-position: 0px 0px;
+      background-size: cover;
+      background-color: #f6f4de;
+    }
+
+    #cta:hover {
+      background-position: 0px -24.5px;
+      background-color: #ffb80e;
+    }
+
+
+    #loader {
+      border: 5px solid #f3f3f3;
+      border-top: 5px solid #e51937;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      animation: spin 1s linear infinite;
+      position: relative;
+      top: 25px;
+      margin: auto;
+    }
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+  <script src="https://s0.2mdn.net/ads/studio/cached_libs/gsap_3.11.5_min.js"></script>
+  <script type="text/javascript">
+    var clickTag = "https://www.ticketmaster.com/kansas-city-chiefs-v-denver-broncos-kansas-city-missouri/event/0600606EC42446D1?brand=chiefs&artistid=805955&landing=s&wt.mc_id=NFL_TEAM_KC_BASE_CHIEFS_BRONCOS";
+  </script>
+</head>
+
+<body>
+  <div id="banner" data-type="standard" style="
+        width: 970px;
+        height: 90px;
+        background-color: #e51937;
+        border: 1px solid #000;
+        overflow: hidden;
+        box-sizing: border-box;
+        cursor: pointer;
+        position: absolute;
+        font-size: 35px;
+      " onclick="window.open(window.clickTag);void(0)">
+    <div id="loader"></div>
+    <img id="bg" src="bg.jpg" />
+    <img id="chiefsLogo" src="chiefsLogo.png" />
+    <img id="opponentLogo" src="opponentLogo.png" />
+    <img id="vs" src="vs.png" />
+    <img id="geha" src="geha.png" />
+    <img id="date" src="date.png" />
+    <img id="day" src="day.png" />
+    <img id="ticketmaster" src="ticketmaster.png" />
+    <div id="cta"></div>
+  </div>
+  <script type="text/javascript">
+    var tl = new TimelineMax();
+    tl.to(loader, 0.25, {
+      autoAlpha: 1,
+    });
+
+    function playTL() {
+      tl.set([opponentLogo, chiefsLogo, vs], {
+        scale: .5
+      });
+      tl.to(loader, 0.25, {
+        display: "none",
+      });
+
+      // 1
+      tl.add("intro");
+      tl.to(
+        [bg, geha],
+        0.25,
+        {
+          autoAlpha: 1,
+        },
+        "intro"
+      );
+
+      /* -----------------
+                   Scene 2
+                   ------------------ */
+      tl.to(opponentLogo, .5, {
+        autoAlpha: 1,
+        scale: 1,
+        duration: 0.1,
+        ease: "bounce.out",
+      });
+      tl.to(vs, .25, {
+        scaleX: 1,
+        scaleY: 1,
+        autoAlpha: 1,
+        ease: "bounce.out"
+      });
+      tl.to(chiefsLogo, .5, {
+        autoAlpha: 1,
+        scale: 1,
+        duration: 0.1,
+        ease: "bounce.out",
+      });
+
+
+      tl.add("finale", "+=.1");
+      tl.fromTo(day, { autoAlpha: 0, scale: 10, filter: 'brightness(40%) blur(40px)', }, { autoAlpha: 1, filter: 'brightness(100%) blur(0px)', scale: 1, duration: .5, ease: "power.out" }, "finale");
+
+      tl.add("finale2", "+=.1");
+      tl.fromTo(date, { autoAlpha: 0, scale: 10, filter: 'brightness(40%) blur(40px)', }, { autoAlpha: 1, filter: 'brightness(100%) blur(0px)', scale: 1, duration: .5, ease: "power.out" }, "finale2");
+      tl.add("finale3", "+=.5");
+      tl.to(
+        cta,
+        0.25,
+        {
+          duration: 2.5,
+          autoAlpha: 1,
+          y: -5,
+
+        },
+        "finale3"
+      );
+      tl.to(
+        [ticketmaster],
+        0.25,
+        {
+          duration: 2.5,
+          autoAlpha: 1,
+        },
+        "finale3"
+      );
+    }
+
+    var loopCount = 0;
+
+    window.onload = function () {
+      playTL();
+    };
+  </script>
+</body>
+
+</html>
