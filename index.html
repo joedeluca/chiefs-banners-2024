@@ -13,8 +13,89 @@
 </head>
 
 <body>
-    <iframe src="300x250-raiders/index.html" style="border:none" title="W3Schools Free Online Web Tutorials" width="300"
-        height="250"></iframe>
+    <div style="padding:5px;margin:5px;">
+        <select name="banner" id="banner" style="font-size:20px;padding:2px;background-color:black;color:whitesmoke;"
+            onchange="switchBanner();">
+            <option value="160x600-bengals">Bengals 160x600</option>
+            <option value="300x50-bengals">Bengals 300x50</option>
+            <option value="300x250-bengals">Bengals 300x250</option>
+            <option value="300x600-bengals">Bengals 300x600</option>
+            <option value="320x50-bengals">Bengals 320x50</option>
+            <option value="728x90-bengals">Bengals 728x90</option>
+            <option value="970x90-bengals">Bengals 970x90</option>
+            <option value="970x250-bengals">Bengals 970x250</option>
+            <option value="160x600-broncos">Broncos 160x600</option>
+            <option value="300x50-broncos">Broncos 300x50</option>
+            <option value="300x250-broncos">Broncos 300x250</option>
+            <option value="300x600-broncos">Broncos 300x600</option>
+            <option value="320x50-broncos">Broncos 320x50</option>
+            <option value="728x90-broncos">Broncos 728x90</option>
+            <option value="970x90-broncos">Broncos 970x90</option>
+            <option value="970x250-broncos">Broncos 970x250</option>
+            <option value="160x600-bucs">Bucs 160x600</option>
+            <option value="300x50-bucs">Bucs 300x50</option>
+            <option value="300x250-bucs">Bucs 300x250</option>
+            <option value="300x600-bucs">Bucs 300x600</option>
+            <option value="320x50-bucs">Bucs 320x50</option>
+            <option value="728x90-bucs">Bucs 728x90</option>
+            <option value="970x90-bucs">Bucs 970x90</option>
+            <option value="970x250-bucs">Bucs 970x250</option>
+            <option value="160x600-chargers">Chargers 160x600</option>
+            <option value="300x50-chargers">Chargers 300x50</option>
+            <option value="300x250-chargers">Chargers 300x250</option>
+            <option value="300x600-chargers">Chargers 300x600</option>
+            <option value="320x50-chargers">Chargers 320x50</option>
+            <option value="728x90-chargers">Chargers 728x90</option>
+            <option value="970x90-chargers">Chargers 970x90</option>
+            <option value="970x250-chargers">Chargers 970x250</option>
+            <option value="160x600-raiders">Raiders 160x600</option>
+            <option value="300x50-raiders">Raiders 300x50</option>
+            <option value="300x250-raiders">Raiders 300x250</option>
+            <option value="300x600-raiders">Raiders 300x600</option>
+            <option value="320x50-raiders">Raiders 320x50</option>
+            <option value="728x90-raiders">Raiders 728x90</option>
+            <option value="970x90-raiders">Raiders 970x90</option>
+            <option value="970x250-raiders">Raiders 970x250</option>
+            <option value="160x600-ravens">Ravens 160x600</option>
+            <option value="300x50-ravens">Ravens 300x50</option>
+            <option value="300x250-ravens">Ravens 300x250</option>
+            <option value="300x600-ravens">Ravens 300x600</option>
+            <option value="320x50-ravens">Ravens 320x50</option>
+            <option value="728x90-ravens">Ravens 728x90</option>
+            <option value="970x90-ravens">Ravens 970x90</option>
+            <option value="970x250-ravens">Ravens 970x250</option>
+            <option value="160x600-saints">Saints 160x600</option>
+            <option value="300x50-saints">Saints 300x50</option>
+            <option value="300x250-saints">Saints 300x250</option>
+            <option value="300x600-saints">Saints 300x600</option>
+            <option value="320x50-saints">Saints 320x50</option>
+            <option value="728x90-saints">Saints 728x90</option>
+            <option value="970x90-saints">Saints 970x90</option>
+            <option value="970x250-saints">Saints 970x250</option>
+            <option value="160x600-texans">Texans 160x600</option>
+            <option value="300x50-texans">Texans 300x50</option>
+            <option value="300x250-texans">Texans 300x250</option>
+            <option value="300x600-texans">Texans 300x600</option>
+            <option value="320x50-texans">Texans 320x50</option>
+            <option value="728x90-texans">Texans 728x90</option>
+            <option value="970x90-texans">Texans 970x90</option>
+            <option value="970x250-texans">Texans 970x250</option>
+            <option value="audi">Audi</option>
+        </select>
+    </div>
+    <div>
+        <iframe id="bannerViewer" src="300x250-raiders/index.html" style="border:none"
+            title="W3Schools Free Online Web Tutorials" width="300" height="250"></iframe>
+    </div>
 </body>
+<script>
+    function switchBanner() {
+        var val = document.querySelector('select[name="banner"]').options;
+        document.getElementById("bannerViewer").src = val[val.selectedIndex].value + '/index.html';
+        document.getElementById("bannerViewer").width = val[val.selectedIndex].value.slice(0, 3)
+        document.getElementById("bannerViewer").height = val[val.selectedIndex].value.slice(4, 7).replace("-", "");
+        console.log('sdf', val[val.selectedIndex].value.slice(4, 7).replace("-", ""))
+    }
+</script>
 
 </html>
